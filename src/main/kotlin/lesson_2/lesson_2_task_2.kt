@@ -12,12 +12,12 @@ fun main() {
     println(sumWorker)
 
 //2) Общие расходы по ЗП после прихода стажеров:
-    val sumTrainee = trainee*traineePay
+    val sumTrainee = trainee * traineePay
 
-    val sumPay = sumTrainee+sumWorker
+    val sumPay = sumTrainee + sumWorker
     println(sumPay)
 
 //3) Среднюю ЗП одного сотрудника после устройства стажеров:
-    val srednPay = sumPay/(worker+trainee)
+    val srednPay = sumPay / (worker + trainee)
     println(srednPay)
 }
