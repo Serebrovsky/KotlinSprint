@@ -1,14 +1,15 @@
 fun main() {
     val year = 1961 //год полета Юрия Гагарина в космос
     var hour = 9
-    var minute = 7
+    var min = 7
 
     println(year)
     println(hour)
-    println(minute)
+    println(min)
 
     hour = 10
-    minute = 55
+    min = 55
 
-    println("$hour:$minute")
+    val time = String.format("%02d:%02d", hour, min)
+    print(time)
 }
