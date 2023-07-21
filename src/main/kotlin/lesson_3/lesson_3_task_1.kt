@@ -6,13 +6,15 @@ package lesson_3
 Приветствие и имя пользователя должны храниться в отдельных переменных. Вывести в консоль два приветствия
 (для дня и для вечера), перезаписывая данные в одну исходную переменную. */
 
-fun main(){
+fun main() {
     val massageEvening = "Добрый вечер,"
     val massageAfternoon = "Добрый день,"
     val name = "Владимир"
 
-    val helloMessageEvening = massageEvening + " " + name
+    // val helloMessageEvening = massageEvening + " " + name
+    val helloMessageEvening = "$massageEvening $name"
+    val helloMassageAfternoon = "$massageAfternoon $name"
+
     println(helloMessageEvening)
-    val helloMassageAfternoon = massageAfternoon + " " + name
     println(helloMassageAfternoon)
 }
