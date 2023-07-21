@@ -14,8 +14,8 @@ fun main(){
     val ageBeforeMarriage = 20
     val ageAfterMarriage = 22
 
-    val status20 = surnameBeforeMarriage + " " + name + " " + surname2 + ", " + ageBeforeMarriage
-    val status22 = surnameAfterMarriage + " " + name + " " + surname2 + ", " + ageAfterMarriage
+    val status20 = "$surnameBeforeMarriage $name $surname2, $ageBeforeMarriage"
+    val status22 = "$surnameAfterMarriage $name $surname2, $ageAfterMarriage"
 
     println(status20)
     println(status22)
