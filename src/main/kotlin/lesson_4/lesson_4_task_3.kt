@@ -19,15 +19,15 @@ package lesson_4
 
 fun main() {
     //Сегодня:
-    val solar = true
-    val openTent = true
+    val isSunny = true
+    val isAwningOpen = true
     val wet = 20
     val season = "зима"
 
     println(
         "Благоприятные ли условия сейчас для роста бобовых? ${
-            solar == SOLAR &&
-                    openTent == OPEN_TENT &&
+            isSunny == IS_SUNNY &&
+                    isAwningOpen == IS_AWNING_OPEN &&
                     wet == WET &&
                     season == SEASON
         }"
@@ -35,7 +35,7 @@ fun main() {
 }
 
 //Идеальные условия роста:
-const val SOLAR = true
-const val OPEN_TENT = true
+const val IS_SUNNY = true
+const val IS_AWNING_OPEN = true
 const val WET = 20
 const val SEASON = "не зима"
