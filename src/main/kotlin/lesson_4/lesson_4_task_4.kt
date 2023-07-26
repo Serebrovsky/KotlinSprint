@@ -18,27 +18,34 @@ package lesson_4
 - при изменении значения переменной дня тренировки на 1 день вперед, вывод должен меняться.*/
 
 fun main() {
-    var hands = true
-    var legs = false
-    var back = false
-    var press = true
+    val hands: Boolean
+    val legs: Boolean
+    val back: Boolean
+    val press: Boolean
+    val isEven: Boolean
 
-    var counter = 5
-    counter = counter % 2
-    when (counter) {
-        0 -> {
+    val counter = 5 //задаем номер тренировки
+
+    val counter1 = counter % 2
+    isEven = counter1 == 1
+
+    when (isEven) {
+        true -> {
             hands = true; legs = false; back = false; press = true
         }
-        1 -> {
+
+        false -> {
             hands = false; legs = true; back = true; press = false
         }
     }
-    println(
-        """
+
+        println(
+            """
         |Упражнения для рук: $hands
         |Упражнения для ног: $legs
         |Упражнения для сины: $back
         |Упражнения для пресса: $press
     """.trimMargin()
-    )
-}
+        )
+    }
+
