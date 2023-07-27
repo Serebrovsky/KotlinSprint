@@ -26,9 +26,15 @@ fun main() {
 
     val counter = 5 //задаем номер тренировки
 
-    val counter1 = counter % 2
-    isEven = counter1 == 1
+    isEven = counter % 2 == 0
 
+    if (!isEven) {
+        hands = true; legs = false; back = false; press = true
+    } else {
+        hands = false; legs = true; back = true; press = false
+    }
+
+/*
     when (isEven) {
         true -> {
             hands = true; legs = false; back = false; press = true
@@ -37,7 +43,7 @@ fun main() {
         false -> {
             hands = false; legs = true; back = true; press = false
         }
-    }
+    }*/
 
     println(
         """
