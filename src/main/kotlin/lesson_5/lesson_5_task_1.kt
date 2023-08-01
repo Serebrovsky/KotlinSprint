@@ -11,8 +11,8 @@ package lesson_5
 fun main() {
 
     println("Для входа в приложение напишите результат сложения ниже 7+8=?")
-    val n = readLine()?.toInt()
+    val check = readln().toInt()
 
-    if (n == 15) println("Добро пожаловать!")
+    if (check == 15) println("Добро пожаловать!")
     else println("Доступ запрещен!")
 }
