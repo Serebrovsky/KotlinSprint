@@ -28,22 +28,10 @@ fun main() {
 
     isEven = counter % 2 == 0
 
-    if (!isEven) {
-        hands = true; legs = false; back = false; press = true
-    } else {
-        hands = false; legs = true; back = true; press = false
-    }
-
-/*
-    when (isEven) {
-        true -> {
-            hands = true; legs = false; back = false; press = true
-        }
-
-        false -> {
-            hands = false; legs = true; back = true; press = false
-        }
-    }*/
+    hands = !isEven
+    legs = isEven
+    back = isEven
+    press = !isEven
 
     println(
         """
