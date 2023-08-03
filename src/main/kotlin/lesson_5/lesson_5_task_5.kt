@@ -1,5 +1,6 @@
 package lesson_5
 
+import com.sun.org.apache.xalan.internal.lib.ExsltMath.random
 import java.util.*
 
 
@@ -13,14 +14,14 @@ import java.util.*
 Точно также надо оформить ввод чисел подсказками, в конце распечатать выйгрышные числа.*/
 
 fun main() {
-    val random = Random()
-    val randomNumber1 = random.nextInt(1, 101)
-    val randomNumber2 = random.nextInt(1, 101)
+
+    val randomNumber1 = (0..101).random()
+    val randomNumber2 = (0..101).random()
 
     println("Введите построчно два числа от 1 до 100:")
 
-    val editNumber1 = readLine()?.toInt()
-    val editNumber2 = readLine()?.toInt()
+    val editNumber1 = readln().toInt()
+    val editNumber2 = readln().toInt()
 
 
     if ((editNumber1 == randomNumber1) || (editNumber2 == randomNumber1) &&
