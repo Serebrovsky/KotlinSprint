@@ -3,18 +3,19 @@ package lesson_5
 
 fun main() {
     println("Введите имя пользователя:")
-    var login = readLine()
+    var yourName = readln()
+    val yourPassword: String
 
-    if (login == LOGIN) {
+    if (yourName == LOGIN) {
         println("Введите Ваш пароль:")
-        val password = readLine()
-        if (password == PASSWORD) println("Добро пожаловать в систему!")
+        yourPassword = readln()
+        if (yourPassword == PASSWORD) println("Добро пожаловать в систему!")
         else println("Пароль неверный! Доступ запрещен!")
     } else {
         println("Вам необходимо зарегистрироваться! Введите свои логин и пароль:")
-        login = readLine()
-        val password1 = readLine()
-        println("Вы успешно зарегестрированы, логин: $login, пароль: $password1")
+        yourName = readln()
+        yourPassword = readln()
+        println("Вы успешно зарегестрированы, логин: $yourName, пароль: $yourPassword")
     }
 }
 
