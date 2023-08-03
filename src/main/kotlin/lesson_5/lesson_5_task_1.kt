@@ -9,10 +9,11 @@ package lesson_5
 "Доступ запрещен."*/
 
 fun main() {
+    val a = 7
+    val b = 8
+    println("Для входа в приложение напишите результат сложения $a+$b ниже:")
 
-    println("Для входа в приложение напишите результат сложения ниже 7+8=?")
-    val check = readln().toInt()
-
-    if (check == 15) println("Добро пожаловать!")
+    val sum = readln().toInt()
+    if (sum == (a + b)) println("Добро пожаловать!")
     else println("Доступ запрещен!")
 }
