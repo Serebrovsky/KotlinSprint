@@ -25,42 +25,26 @@ fun main(){
 
     println("Есть ли повреждения корпуса?")
     val destroyString = readLine()
-    val destroyBoolean = when (destroyString?.toLowerCase()) {
-        "true" -> true
-        "false"-> false
-        else -> false
-    }
+    val isDestroy = destroyString.toBoolean()
+
     println("Какое количество экипажа?")
     val numberOfCrew = readLine()?.toInt()
 
     println("Какое количество ящиков на борту?")
     val numberOfBoxes = readLine()?.toInt()
 
-    println("Благоприятная ли погода?")
+/*    println("Благоприятная ли погода?")
     val favorableWeatherString = readLine()
-    val favorableWeatherBoolean = when (favorableWeatherString?.toLowerCase()) {
-        "true" -> true
-        "false"-> false
-        else -> false
-    }
+    val isFavorableWeather = favorableWeatherString.toBoolean()*/
 
-    val abilityL: Boolean = (destroyBoolean == DESTROY_L && MIN_CREW_L <= numberOfCrew!!
-            && numberOfCrew <= MAX_CREW_L && MIN_BOXES_L <= numberOfBoxes!! )
-    val abilityS: Boolean = (destroyBoolean == DESTROY_S && numberOfCrew!! <= CREW_S &&
-            MIN_BOXES_S <= numberOfBoxes!! && favorableWeatherBoolean == FAVORABLE_WEATHER_S)
+    val isAbility: Boolean = (isDestroy == IS_DESTROY && MIN_CREW <= numberOfCrew!! && numberOfCrew >= MAX_CREW && numberOfBoxes!! >= MIN_BOXES)
 
-    println("Возможность отправиться в долгосрочное плаванье: $abilityL")
-    println("Возможность отправиться с незначительными повреждениями: $abilityS")
+    println("Возможность отправиться плаванье: $isAbility")
 }
-//LONG TERM:
-const val DESTROY_L = false
-const val MIN_CREW_L = 55
-const val MAX_CREW_L = 70
-const val MIN_BOXES_L = 50
-//const val FAVORABLE_WEATHER_L
 
-//SHORT TERM:
-const val DESTROY_S = true
-const val CREW_S = 70
-const val FAVORABLE_WEATHER_S = true
-const val MIN_BOXES_S = 50
+const val IS_DESTROY = true
+const val MIN_CREW = 55
+const val MAX_CREW = 70
+const val MIN_BOXES = 50
+
+//если неправильно, то я не понимаю что от меня хотят. не понимаю условие. Этот альтернативный рейс меня путает
