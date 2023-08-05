@@ -15,8 +15,8 @@ import java.util.*
 
 fun main() {
 
-    val randomNumber1 = (0..101).random()
-    val randomNumber2 = (0..101).random()
+    val randomNumber1 = (0..100).random()
+    val randomNumber2 = (0..100).random()
 
     println("Введите построчно два числа от 1 до 100:")
 
