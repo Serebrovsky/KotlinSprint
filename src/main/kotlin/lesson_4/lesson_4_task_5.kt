@@ -24,27 +24,26 @@ package lesson_4
 fun main(){
 
     println("Есть ли повреждения корпуса?")
-    val destroyString = readLine()
-    val isDestroy = destroyString.toBoolean()
+    val isDestroy = readln().toBoolean()
 
     println("Какое количество экипажа?")
-    val numberOfCrew = readLine()?.toInt()
+    val numberOfCrew = readln().toInt()
 
     println("Какое количество ящиков на борту?")
-    val numberOfBoxes = readLine()?.toInt()
+    val numberOfBoxes = readln().toInt()
 
-/*    println("Благоприятная ли погода?")
-    val favorableWeatherString = readLine()
-    val isFavorableWeather = favorableWeatherString.toBoolean()*/
+    println("Благоприятная ли погода?")
+    val isFavorableWeather = readln().toBoolean()
 
-    val isAbility: Boolean = (isDestroy == IS_DESTROY && MIN_CREW <= numberOfCrew!! && numberOfCrew >= MAX_CREW && numberOfBoxes!! >= MIN_BOXES)
+    val isAbility: Boolean = (isDestroy == false && MIN_CREW <= numberOfCrew
+            && numberOfCrew <= MAX_CREW && numberOfBoxes >= MIN_BOXES) ||
+            (isDestroy == true && numberOfCrew == MAX_CREW && isFavorableWeather == true
+                    && numberOfBoxes >= MIN_BOXES)
 
     println("Возможность отправиться плаванье: $isAbility")
 }
-
-const val IS_DESTROY = true
 const val MIN_CREW = 55
 const val MAX_CREW = 70
 const val MIN_BOXES = 50
 
-//если неправильно, то я не понимаю что от меня хотят. не понимаю условие. Этот альтернативный рейс меня путает
+
