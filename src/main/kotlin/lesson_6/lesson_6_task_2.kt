@@ -5,15 +5,11 @@ package lesson_6
 введенных пользователем.*/
 
 
-fun main () {
+fun main() {
     println("Введите количество секунда, которое нужно засечь:")
     val sec: Int = readln().toInt()
+    val secLong: Long = (sec * 1000).toLong()
 
-    var counter = 0
-
-    while (counter < sec) {
-        Thread.sleep(1000)
-        counter++
-    }
+    Thread.sleep(secLong)
     println("Прошло $sec секунд")
 }
