@@ -11,17 +11,16 @@ fun main() {
     println("Задайте построчно логин и пароль:")
 
     val login = readln()
-    val password = readln().toInt()
+    val password = readln()
 
     println("Введите значения логина и пароля:")
-    var loginEntry = readln()
-    var passwordEntry = readln().toInt()
 
-    while ((loginEntry != login) && (passwordEntry != password)) {
-        println("Данные введены неправильно! Поробуйте еще раз:")
-        loginEntry = readln()
-        passwordEntry = readln().toInt()
-    }
+    do {
+        val loginEntry = readln()
+        val passwordEntry = readln()
+        if ((loginEntry != login) || (passwordEntry != password)) {
+            println("Данные введены неправильно! Поробуйте еще раз:")
+        }
+    } while ((loginEntry != login) || (passwordEntry != password))
     println("Авторизация прошла успешно!")
-
 }
