@@ -33,4 +33,5 @@ fun main() {
     } while (inputSum != sum)
 
 }
+
 const val ATTEMPT = 3
