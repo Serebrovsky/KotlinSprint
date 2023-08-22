@@ -35,11 +35,10 @@ fun main(){
     println("Благоприятная ли погода?")
     val isFavorableWeather = readln().toBoolean()
 
-    val isAbility: Boolean = (isDestroy == false && MIN_CREW <= numberOfCrew
-            && numberOfCrew <= MAX_CREW && numberOfBoxes >= MIN_BOXES) ||
-            (isDestroy == true && numberOfCrew == MAX_CREW && isFavorableWeather == true
-                    && numberOfBoxes >= MIN_BOXES)
-
+    val isAbility: Boolean = (!isDestroy && MIN_CREW <= numberOfCrew &&
+            numberOfCrew <= MAX_CREW && numberOfBoxes >= MIN_BOXES) ||
+            (isDestroy && numberOfCrew == MAX_CREW && isFavorableWeather &&
+                    numberOfBoxes >= MIN_BOXES)
     println("Возможность отправиться плаванье: $isAbility")
 }
 const val MIN_CREW = 55
