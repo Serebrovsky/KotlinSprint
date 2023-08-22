@@ -18,9 +18,9 @@ fun main(){
 
     while (myNumber != winNumber) {
 
-        println("Неверно! Осталось ${5 - (++counter)} попыток")
+        println("Неверно! Осталось ${ATTEMPT - (++counter)} попыток")
 
-        if (counter == 5) {
+        if (counter == ATTEMPT) {
             println("Бало загадано число $winNumber")
             break
         }
@@ -28,5 +28,6 @@ fun main(){
         myNumber = readln().toInt()
     }
 
-    println("Это была великолепная игра")
+    println("Это была великолепная игра. Было загадано число $winNumber")
 }
+const val ATTEMPT = 5
