@@ -1,6 +1,6 @@
 package lesson_5
 
-import com.sun.org.apache.xalan.internal.lib.ExsltMath.random
+//import com.sun.org.apache.xalan.internal.lib.ExsltMath.random
 import java.util.*
 
 
