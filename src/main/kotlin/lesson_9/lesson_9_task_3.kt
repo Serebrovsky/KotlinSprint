@@ -13,15 +13,15 @@ package lesson_9
 сливочного масла – n2]”.*/
 
 fun main() {
-    val oneDish = mutableListOf(2, 50, 15)
+    val forOneDish = mutableListOf(2, 50, 15)
 
     println("Введите количество порций:")
     val quantityDish = readln().toInt()
 
-    val oneDish2 = oneDish.map { (it * quantityDish) }
+    val forAllDish = forOneDish.map { it * quantityDish }
 
     println(
-        "На $quantityDish порций вам понадобится: яиц - ${oneDish2[0]}шт.," +
-                " молока - ${oneDish2[1]}мл, сливочного масла - ${oneDish2[2]}гр."
+        "На $quantityDish порций вам понадобится: яиц - ${forAllDish[0]}шт.," +
+                " молока - ${forAllDish[1]}мл, сливочного масла - ${forAllDish[2]}гр."
     )
 }
