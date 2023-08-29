@@ -10,13 +10,12 @@ fun main() {
     println("Введите планируемое количество ингридиентов:")
     val quantityOfIngredients = readln().toInt()
 
-    val dish = arrayOfNulls<String>(quantityOfIngredients)
-    var counter = 0
+    // val dish = arrayOfNulls<String>(quantityOfIngredients)
+    val ingredientsArray = Array(quantityOfIngredients) { "" }
 
-    for (i in dish) {
+    for (i in 0..(quantityOfIngredients - 1)) {
         println("Введите ингридиент:")
-        dish[counter] = readln()
-        counter++
+        ingredientsArray[i] = readln()
     }
-    println("Ингредиенты Вашего блюда: ${dish.contentToString()}")
+    println("Ингредиенты Вашего блюда: ${ingredientsArray.contentToString()}")
 }
