@@ -18,9 +18,9 @@ fun main() {
 
     println("Какой ингридиет Вы хотите заменить?")
     val replaseIngredient = readln()
-    val isIngredient = dish.contains(replaseIngredient)
+    //  val isIngredient = dish.contains(replaseIngredient)
 
-    if (isIngredient) {
+    if (dish.contains(replaseIngredient)) {
 
         val index = dish.indexOf(replaseIngredient)
 
