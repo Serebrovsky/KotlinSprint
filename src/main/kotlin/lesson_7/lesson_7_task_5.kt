@@ -12,14 +12,12 @@ fun main() {
     println("Введите количество символов:")
     val counter = readln().toInt()
 
+    var x = ""
     for (i in 1..counter) {
-        val x1 = (0..9).random()
-        val x2 = ('a'..'z').random()
-        val x3 = ('A'..'Z').random()
-        val str = "$x1$x2$x3".random()
-        print(str)
+        val str = "${(0..9).random()}${('a'..'z').random()}${('A'..'Z').random()}".random()
+        x = x + str
     }
-    //  val f = str.toList().shuffled().joinToString ("")
+    print(x)
 }
 
 
