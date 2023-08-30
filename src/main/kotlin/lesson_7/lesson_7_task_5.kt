@@ -12,12 +12,13 @@ fun main() {
     println("Введите количество символов:")
     val counter = readln().toInt()
 
-    var x = ""
+    var password = ""
+    val range = (0..9) + ('a'..'z') + ('A'..'Z')
     for (i in 1..counter) {
-        val str = "${(0..9).random()}${('a'..'z').random()}${('A'..'Z').random()}".random()
-        x = x + str
+        val char = range.random()
+        password = password + char
     }
-    print(x)
+    print(password)
 }
 
 
