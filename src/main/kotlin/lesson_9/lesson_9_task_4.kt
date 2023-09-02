@@ -7,8 +7,8 @@ package lesson_9
 с 5 отдельными элементами;
 – отсортируй полученный список по алфавиту и выведи его в консоль.*/
 
-fun main(){
+fun main() {
     println("Перечислите 5 ингредиентов через запятую")
-    val dishList = readLine()!!.split(",").toList()
-    println(dishList.sortedBy{it.length})
+    val dishList = readln().split(",").toList()
+    println(dishList.sortedBy { it.length })
 }
