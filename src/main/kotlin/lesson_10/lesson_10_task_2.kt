@@ -11,12 +11,11 @@ fun main() {
     val login = readln()
     println("Укажите Ваш пароль:")
     val password = readln()
-
-    val check = lengthCheck(login, password)
-    if (!check) println("Логин и пароль недостаточно длинные!")
+    
+    if (!checkLength(login, password)) println("Логин и пароль недостаточно длинные!")
 }
 
-fun lengthCheck(login: String, password: String): Boolean {
+fun checkLength(login: String, password: String): Boolean {
     val lengthLogin = login.length
     val lengthPassword = password.length
 
