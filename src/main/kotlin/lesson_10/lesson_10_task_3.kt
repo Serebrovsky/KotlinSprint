@@ -13,14 +13,14 @@ package lesson_10
 fun main() {
     println("Введите длину пароля:")
     val length = readln().toInt()
-    val password = passwordGeneration(length)
+    val password = generatePassword(length)
     println(password)
 }
 
-fun passwordGeneration(length: Int): String {
+fun generatePassword(length: Int): String {
     var string = ""
     for (i in 1..length) {
-        val specialSymbols = ("!\"#\$%&'()*+,-./ " + "0123456789").random()
+        val specialSymbols = (('!'..'/') + (0..9)).random()
         string = string + specialSymbols
     }
     return string
