@@ -14,13 +14,13 @@ fun main() {
 
     var allWin = 0 //счетчик побед
     do {
-        val oneWin = round(winHuman = 0) //запускается функция вывода очков и счетчик побед
+        val oneWin = determineWinner(winHuman = 0) //запускается функция вывода очков и счетчик побед
         allWin = oneWin + allWin //суммируются все победы человека
 
         /*----блок продолжения игры----*/
         println("Продолжить игру?")
         val isContinue = readln()
-        val isContinueBoolean = when (isContinue.toLowerCase()) {
+        val isContinueBoolean = when (isContinue.lowercase()) {
             "да" -> true
             "нет" -> false
             else -> false
@@ -30,22 +30,21 @@ fun main() {
     println("Вы выиграли $allWin раз")
 }
 
-fun round(winHuman: Int): Int {
-    val diceHuman = generation()
-    val diceComputer = generation()
+fun determineWinner(winHuman: Int): Int {
+    val diceHuman = generateRandomNum()
+    val diceComputer = generateRandomNum()
     println("У человека: $diceHuman, у компьютера: $diceComputer")
 
-    if (diceHuman > diceComputer) {
-        val winHuman = winHuman + 1
-        return winHuman
+    return if (diceHuman > diceComputer) {
+        winHuman + 1
     } else {
-        return winHuman
+        winHuman
     }
-}
+} //я не понимаю как можно без return обойтись. Функция же либо выполняет действие,
+// либо возвращает значение через return
 
-fun generation(): Int {
-    val number = (1..6).random()
-    return number
+fun generateRandomNum(): Int {
+    return (1..6).random()
 }
 
 
