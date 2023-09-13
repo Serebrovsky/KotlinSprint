@@ -1,4 +1,4 @@
-package lesson_11_task_1
+package lesson_11
 
 /*Задача 1 к Уроку 11
 Создай класс, который будет хранить данные пользователя. В свойствах должна храниться информация об уникальном
@@ -20,3 +20,9 @@ fun main() {
     println(user2.password)
     println(user2.email)
 }
+class User(
+    val id: Int,
+    val login: String,
+    val password: String,
+    val email: String,
+)
