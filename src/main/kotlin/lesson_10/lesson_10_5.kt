@@ -16,41 +16,61 @@ package lesson_10
 fun main() {
 
     var login: String
-    var password: Int
-
     do {
         println("Придумайте Ваш логин:")
         login = readln()
 
-
-        val isCheckLogin = checkLogin(login)
+        val isCheckLogin = checkLengthLogin(login)
     } while (!isCheckLogin)
 
-    do {
+    val password = generatePassword()
 
-        password = passwordGeneration()
-        println("Ваш пароль: $password")
-
-        println("Введите Ваши логин и пароль:")
-        val editLogin = readln()
-        val editPassword = readln().toInt()
-        if ((editPassword != password) || (editLogin != login)) println("Ошибка!")
-    } while ((editPassword != password) || (editLogin != login))
+    checkPassword(login, password)
 
     println("Вы успешно авторизовались!")
-
 }
 
-fun checkLogin(login: String): Boolean {
-    if (login.length >= ATTEMPT) return true
+fun checkLengthLogin(login: String): Boolean {
+    if (login.length >= NUMBER_OF_ATTEMPT) return true
     else {
         println("Ошибка! Длина логина должна быть более 4 символов!")
         return false
     }
 }
 
-fun passwordGeneration(): Int {
-    val result = (1000..9999).random()
-    return result
+fun generatePassword(): String {
+    var string = ""
+    for (i in 1..5) {
+        val password = ((0..9) + ('a'..'z') + ('A'..'Z')).random()
+        string = string + password
+    }
+    return string
 }
-const val ATTEMPT = 4
+
+
+fun generateOtp(): Int {
+    return (1000..9999).random()
+}
+
+
+fun checkPassword(login: String, password: String) {
+    var editLogin: String
+    var editPassword: String
+    var editOtp: Int
+    var otp: Int
+
+    do {
+
+        otp = generateOtp()
+        println("Ваш пароль: $password, код: $otp")
+
+        println("Введите Ваши логин, пароль и код:")
+        editLogin = readln()
+        editPassword = readln()
+        editOtp = readln().toInt()
+        if ((editOtp != otp) || (editLogin != login) || (editPassword != password)) println("Ошибка!") //проверить логин, пароль и OTP
+    } while ((editOtp != otp) || (editLogin != login) || (editPassword != password))
+
+}
+
+const val NUMBER_OF_ATTEMPT = 4
