@@ -19,9 +19,11 @@ fun main() {
 
 fun generatePassword(length: Int): String {
     var string = ""
-    for (i in 1..length) {
-        val specialSymbols = (('!'..'/') + (0..9)).random()
-        string = string + specialSymbols
+    for (i in 1..length / 2) {
+        val specialSymbols = ('!'..'/').random()
+        val number = (0..9).random()
+        string += specialSymbols
+        string += number
     }
     return string
 }
