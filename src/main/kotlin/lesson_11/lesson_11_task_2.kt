@@ -1,4 +1,4 @@
-package lesson_11_task_2
+package lesson_11
 
 /*Задача 2 к Уроку 11
 Возьми класс User из первой задачи. Добавь к классу новое необязательное свойство bio и несколько методов.
@@ -21,4 +21,37 @@ fun main() {
     user1.changePassword()
     user1.addMessage()
 
+}
+
+class User(
+    val id: Int,
+    val login: String,
+    var password: String,
+    val email: String,
+    var bio: String = "жизнерадостный",
+) {
+    fun printUser() {
+        println("Информация о пользователе: id:${id}, логин:${login}, пароль:${password}, е-mail:${email}")
+    }
+
+    fun addBio() {
+        println("Введите значение для био:")
+        bio = readln()
+    }
+
+    fun changePassword() {
+        println("Введите Ваш пароль:")
+        val editPassword = readln()
+        if (editPassword == password) {
+            println("Измените свой пароль на новый:")
+            password = readln()
+            println("Пароль изменен! Ваш новый пароль: $password")
+        }
+    }
+
+    fun addMessage() {
+        println("Напишите сообщение:")
+        val addString = readln()
+        println(addString)
+    }
 }
