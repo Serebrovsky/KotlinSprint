@@ -31,7 +31,7 @@ fun main() {
 }
 
 fun checkLengthLogin(login: String): Boolean {
-    if (login.length >= NUMBER_OF_ATTEMPT) return true
+    if (login.length >= LENGTH_LOGIN) return true
     else {
         println("Ошибка! Длина логина должна быть более 4 символов!")
         return false
@@ -73,4 +73,4 @@ fun checkPassword(login: String, password: String) {
 
 }
 
-const val NUMBER_OF_ATTEMPT = 4
+const val LENGTH_LOGIN = 4
