@@ -28,7 +28,7 @@ class User(
     val login: String,
     var password: String,
     val email: String,
-    var bio: String = "жизнерадостный",
+    var bio: String? = null, //не понимаю как еще можно, кроме как по-умолчанию установить какое-то значение
 ) {
     fun printUser() {
         println("Информация о пользователе: id:${id}, логин:${login}, пароль:${password}, е-mail:${email}")
