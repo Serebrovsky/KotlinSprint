@@ -20,6 +20,7 @@ fun main() {
     println(user2.password)
     println(user2.email)
 }
+
 class User(
     val id: Int,
     val login: String,
