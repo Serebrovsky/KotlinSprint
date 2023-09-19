@@ -1,7 +1,5 @@
 package lesson_11
 
-
-
 /*Задача 3 к Уроку 11
 Нужно описать сущности для упрощенной версии приложения социальной сети, в которой общаются только голосом.
 
@@ -13,15 +11,27 @@ package lesson_11
 Рядом с аватаркой отображается текстовый бейдж с одним из возможных статусов говорящего: “разговаривает”,
 “микрофон выключен”, “пользователь заглушен”.
 После проектирования создай список объектов карточек с несколькими “комнатами” с произвольными данными.*/
-fun main(){
+fun main() {
+    val room1 = Room(
+        1, 323242434, "Мотоциклы",
+        listOf(
+            Member(3324, "Владимир", "разговаривает"),
+            Member(5645, "Анна", "микрофон выключен"),
+            Member(6476, "Виктория", "пользователь заглушен"),
+        )
+    )
+    val room2 = Room(
+        2, 342345253, "Кино",
+        listOf(
+            Member(2434, "Ирина", "разговаривает"),
+            Member(2434, "Катя", "микрофон выключен"),
+            Member(3542, "Кирилл", "пользователь заглушен"),
+        )
+    )
+    room1.clickOnAvatar(0, room1)
+    room1.showRoom(room1)
 
-
-    val room1 = Room(1, 324, "Мотоциклы",
-        listOf(Member(324, "Владимир", "разговаривает"),
-            Member(565, "Анна", "микрофон выключен"),
-            Member(676, "Виктория", "пользователь заглушен")))
-    room1.showNicknameAndStatus()
-
+    val roomsList = listOf(room1, room2)
 }
 
 class Room(
@@ -29,16 +39,25 @@ class Room(
     val cover: Int, //обложка
     var name: String, //название комнаты
     var listOfMembers: List<Member>,//ID участников
-
-        ){
-    fun showNicknameAndStatus (){
+) {
+    fun showRoom(room1: Room){
+        println("Отображение комнаты:")
+        println("Аватар: ${room1.cover}")
+        println("Название комнаты: ${room1.name}")
+        room1.listOfMembers.forEach{ println( "Фотография участника: ${it.imageOfParticipants}")}
+    }
+    fun clickOnAvatar(item: Int, room1: Room) {
+        println("Отображается аватар, никнейм и статус участника:")
+        println("Аватар: ${room1.listOfMembers[item].imageOfParticipants}")
+        println("Никнейм: ${room1.listOfMembers[item].nicknameOfParticipants}")
+        println("Статус: ${room1.listOfMembers[item].status}")
     }
 }
 class Member(
     var imageOfParticipants: Int, //аватары участников
     var nicknameOfParticipants: String, //никнеймы участников
     val status: String,
-){}
+)
 
 
 
