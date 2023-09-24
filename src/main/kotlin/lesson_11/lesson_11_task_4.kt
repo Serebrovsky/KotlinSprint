@@ -7,55 +7,34 @@ package lesson_11
 - В блоке с контактами в нижней части скриншота – прикрепленные контакты близких людей.
 - После проектирования создай объект класса Contact с данными из скриншота.*/
 fun main() {
-    val contact1 = Contact(isHomeTelephone = false, mobilePhone = "89999994242")
-    val contact2 = Contact(isHomeTelephone = true, homeTelephone = "89998884242")
-    val contact3 = Contact(title = "iCloud", eMail = "mail@mail.ru")
-    val contact4 = Contact(title = "жена", userName = "Ольга")
-    val contact5 = Contact(title = "Подруга", userName = "Кристина")
-    val contact6 = Contact(title = "Подруга", userName = "Лена")
 
-    println("Выгрузка всех контактов:")
-    contact1.contactOutput()
-    contact2.contactOutput()
 
-    println("Выгрузка c email:")
-    contact3.emailOutput()
 
-    println("Выгрузка близких людей:")
-    contact4.closeOutput()
-    contact5.closeOutput()
-    contact6.closeOutput()
+    val contact1 = Contact(mobilePhone = "89999994242")
+    val contact2 = Contact(homeTelephone = "89998884242")
+    val contact3 = Contact(name = "ICloud", eMail = "mail@mail.ru")
+    val contact4 = Contact(favoriteContact = FavoriteContact("жена"))
 
-    println(contact1)
 }
 
 class Contact(
-    val title: String? = null,
-    val userName: String? = null,
-    val eMail: String? = null,
-    val isHomeTelephone: Boolean = true,
+    val name: String? = null,
+    val secondName: String? = null,
     var homeTelephone: String? = null,
     var mobilePhone: String? = null,
+    val eMail: String? = null,
+    var favoriteContact: List<FavoriteContact>? =null //не могу понять логику зачем внутри класса Contact
+    // создавать список из объектов класса FavoriteContact..и не понял что понимается под "чтобы эти
+    // контакты группировались, так как их на экране несколько".
+    // Почему тогда не создать отдельно класс FavoriteContact и создавать объекты из него?
+    // Прошу прощения плохо чувствую контекст...((
 ) {
-    fun contactOutput() {
-        when (isHomeTelephone) {
-            true -> {
-                println("Домашний телефон: $homeTelephone")
-            }
+    fun callUp (){ println("Звоню") }
+    fun sendSms(){ println("Отправляю смс") }
+    fun sendVideo(){ println("Отправляю видео") }
+    fun sendPost(){ println("Отправляю почту") }
 
-            false -> {
-                println("Мобильный телефон: $mobilePhone")
-            }
-        }
-    }
-
-    fun emailOutput() {
-        println("$userName, $eMail")
-
-    }
-
-    fun closeOutput() {
-        println("$title, $userName")
-
-    }
 }
+class FavoriteContact(
+    var whoIs: String,
+)
