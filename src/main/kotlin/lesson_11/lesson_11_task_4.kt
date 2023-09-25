@@ -12,8 +12,11 @@ fun main() {
     val contact1 = Contact(id = 1, mobilePhone = "89999994242")
     val contact2 = Contact(id = 2, homeTelephone = "89998884242")
     val contact3 = Contact(id = 3, name = "iCloud")
-    val contact4 = FavoriteContact(4, "wife", "жена")
-    val contact5 = FavoriteContact(5, "friend", "подруга")
+    val favoriteContacts = listOf(
+        FavoriteContact(4, "wife", "жена"),
+        FavoriteContact(5, "friend", "подруга")
+    )
+
 }
 
 class Contact(
