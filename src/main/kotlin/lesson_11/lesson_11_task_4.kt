@@ -10,6 +10,10 @@ fun main() {
 
     //После проектирования создай объект класса Contact с данными из скриншота:
     val contact1 = Contact(id = 1, mobilePhone = "89999994242")
+    val contact2 = Contact(id = 2, homeTelephone = "89998884242")
+    val contact3 = Contact(id = 3, name = "iCloud")
+    val contact4 = FavoriteContact(4, "wife", "жена")
+    val contact5 = FavoriteContact(5, "friend", "подруга")
 }
 
 class Contact(
@@ -19,16 +23,28 @@ class Contact(
     var homeTelephone: String? = null,
     var mobilePhone: String? = null,
     val eMail: String? = null,
-    var favoriteContacts: List<FavoriteContact>? =null
+    var favoriteContacts: List<FavoriteContact>? = null
 ) {
-    fun callUp (){ println("Звоню") }
-    fun sendSms(){ println("Отправляю смс") }
-    fun sendVideo(){ println("Отправляю видео") }
-    fun sendPost(){ println("Отправляю почту") }
+    fun callUp() {
+        println("Звоню")
+    }
+
+    fun sendSms() {
+        println("Отправляю смс")
+    }
+
+    fun sendVideo() {
+        println("Отправляю видео")
+    }
+
+    fun sendPost() {
+        println("Отправляю почту")
+    }
 
 }
+
 class FavoriteContact(
     var id: Int,
-    var avatar: Int? = null,
+    var avatar: String? = null,
     var name: String? = null,
 )
