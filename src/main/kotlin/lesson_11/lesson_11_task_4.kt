@@ -8,26 +8,18 @@ package lesson_11
 - После проектирования создай объект класса Contact с данными из скриншота.*/
 fun main() {
 
-
-
-    val contact1 = Contact(mobilePhone = "89999994242")
-    val contact2 = Contact(homeTelephone = "89998884242")
-    val contact3 = Contact(name = "ICloud", eMail = "mail@mail.ru")
-    val contact4 = Contact(favoriteContact = FavoriteContact("жена"))
-
+    //После проектирования создай объект класса Contact с данными из скриншота:
+    val contact1 = Contact(id = 1, mobilePhone = "89999994242")
 }
 
 class Contact(
+    val id: Int,
     val name: String? = null,
     val secondName: String? = null,
     var homeTelephone: String? = null,
     var mobilePhone: String? = null,
     val eMail: String? = null,
-    var favoriteContact: List<FavoriteContact>? =null //не могу понять логику зачем внутри класса Contact
-    // создавать список из объектов класса FavoriteContact..и не понял что понимается под "чтобы эти
-    // контакты группировались, так как их на экране несколько".
-    // Почему тогда не создать отдельно класс FavoriteContact и создавать объекты из него?
-    // Прошу прощения плохо чувствую контекст...((
+    var favoriteContacts: List<FavoriteContact>? =null
 ) {
     fun callUp (){ println("Звоню") }
     fun sendSms(){ println("Отправляю смс") }
@@ -36,5 +28,7 @@ class Contact(
 
 }
 class FavoriteContact(
-    var whoIs: String,
+    var id: Int,
+    var avatar: Int? = null,
+    var name: String? = null,
 )
