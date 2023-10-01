@@ -15,11 +15,11 @@ fun main() {
 
 }
 
-class WeatherDay(tempNight: Int, tempDay: Int, isRain: Boolean, pressure: Int) {
-    var tempNight = tempNight
-    var tempDay = tempDay
-    var isRain = isRain
-    var pressure = pressure
+class WeatherDay(_tempNight: Int, _tempDay: Int, _isRain: Boolean, _pressure: Int) {
+    var tempNight = _tempNight
+    var tempDay = _tempDay
+    var isRain = _isRain
+    var pressure = _pressure
 
     fun printWeather() {
         println("Температура днем: $tempDay, температура ночью: $tempNight, дождь: $isRain, давление $pressure")
