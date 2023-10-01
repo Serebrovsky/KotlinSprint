@@ -5,7 +5,7 @@ package lesson_12_task_1
 Создай два объекта, присвой им произвольные данные и выведи в консоль одним методом созданного класса.
 – в классе создай переменные и проинициализируй их какими-нибудь значениями;
 – затем в объектах подставь другие значения этим переменным.*/
-fun main(){
+fun main() {
     val weather1 = Weather()
     weather1.tempDay = 25
     weather1.tempNight = 20
@@ -21,13 +21,14 @@ fun main(){
     weather2.printWeather()
 
 }
-class Weather (){
+
+class Weather {
     var tempNight: Int = 18
     var tempDay: Int = 25
     var isRain: Boolean = false
     var pressure: Int = 745
 
-    fun printWeather(){
+    fun printWeather() {
         println("Температура днем: $tempDay, температура ночью: $tempNight, дождь: $isRain, давление $pressure")
-}
+    }
 }
