@@ -20,7 +20,16 @@ fun main (){
     var id =0
 
     do {
-        val users = forum.createNewUser(id, registeredUsers)
+        println("Введите Ваш логин:")
+        val login = readln()
+
+        println("Введите Ваш пароль:")
+        val password = readln()
+
+        println("Введите Ваш e-mail:")
+        val email = readln()
+
+        val users = forum.createNewUser(id, login, password, email, registeredUsers)
         println("Создан автор c ID №${users[id].id}, логином:${users[id].login}, " +
                 "паролем:${users[id].password}, почтой: ${users[id].email}")
 
@@ -32,19 +41,12 @@ fun main (){
     forum.printThread(arrayPrintMassage)
 }
 
-class Forum() {
-    fun createNewUser(id: Int, users: MutableList<User>): MutableList<User> {
-
-        println("Введите Ваш логин:")
-        val login = readln()
-
-        println("Введите Ваш пароль:")
-        val password = readln()
-
-        println("Введите Ваш e-mail:")
-        val email = readln()
+class Forum {
+    fun createNewUser(id: Int,login: String, password: String, email: String,
+                      users: MutableList<User>): MutableList<User> {
 
         users.add(User(id, login, password, email))
+
         return users
     }
 
