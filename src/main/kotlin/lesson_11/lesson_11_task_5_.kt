@@ -3,7 +3,8 @@ package lesson_11
 fun main() {
     val forum = Forum_()
 
-    do {
+    for (i in 0..1) {
+        println("==Регистрация нового пользователя==")
         println("Введите Ваш логин:")
         val login = readln()
 
@@ -15,15 +16,16 @@ fun main() {
 
         forum.createNewUser(login, password, email)
 
-        println("Напишите Ваше сообщение:")
+    }
+
+
+    for (id in 0..1) {
+        println("==ЧАТ==")
+        println("Автор с логином ${forum.registeredUsers[id].login} напишите Ваше сообщение:")
         val massage = readln()
+        forum.createNewMessage(id, massage)
 
-        forum.createNewMessage(massage)
-
-        println("Добавить еще одного пользователя?")
-        val isAdd = readln().toBoolean()
-    } while (isAdd)
-
+    }
     forum.printThread()
 
 }
@@ -40,18 +42,18 @@ class Forum_ {
             "Создан автор c ID №${registeredUsers[id].id}, логином:${registeredUsers[id].login}, " +
                     "паролем:${registeredUsers[id].password}, почтой: ${registeredUsers[id].email}"
         )
+        id++
         return registeredUsers
     }
 
-    fun createNewMessage(massage: String): MutableList<String> {
+    fun createNewMessage(id: Int, massage: String): MutableList<String> {
         massagesOfUsers.add("Автор: ${registeredUsers[id].login}, сообщение: $massage")
         println(massagesOfUsers[id])
-        id++
-
         return massagesOfUsers
     }
 
     fun printThread() {
+        println("==Все сообщения из чата==")
         println(massagesOfUsers.forEach { println(it) })
     }
 
