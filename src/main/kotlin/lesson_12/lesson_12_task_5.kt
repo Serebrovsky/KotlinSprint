@@ -14,35 +14,50 @@ package lesson_12
 
 
 fun main() {
-    val array = mutableListOf<WeatherDay__>()
-
-    for (i in 1..10) {
+    val days = mutableListOf<WeatherDay__>()
+    var averageTempNight = 0
+    var averageTempDay = 0
+    var averagePressure = 0
+    var sumRainDay = 0
+    for (i in 0..9) {
         val tempNight = (15..25).random()
         val tempDay = (20..30).random()
         val pressure = (720..760).random()
-        val isRain = listOf(true,false).random()
-        array.add(WeatherDay__(tempNight, tempDay, pressure, isRain))
+        val isRain = listOf(true, false).random()
+
+        days.add(WeatherDay__(tempNight, tempDay, pressure, isRain))
     }
-    for (i in 1..10) {
-        val srЕ
-        val
+    for (i in 0..9) {
+        averageTempNight += days[i].tempNight
+        averageTempDay += days[i].tempDay
+        averagePressure += days[i].pressure
+        if (days[i].isRain) {
+            sumRainDay++
+        }
     }
+    println("Средняя температура ночью: ${averageTempNight / 10}")
+    println("Средняя температура днем: ${averageTempDay / 10}")
+    println("Среднее давление: ${averagePressure / 10}")
+    println("Количество дождливых дней: $sumRainDay")
 }
 
-class WeatherDay__(val tempNight: Int, val tempDay: Int, val pressure: Int) {
+class WeatherDay__(var tempNight: Int, var tempDay: Int, var pressure: Int) {
     var isRain = false
 
-    init {
-        println("Температура днем: $tempDay, температура ночью: $tempNight, дождь: $isRain, давление $pressure")
-    }
+
 
     constructor(
         tempNight: Int,
         tempDay: Int,
         pressure: Int,
-        isRain: Boolean
+        isRain: Boolean,
     ) : this(tempNight, tempDay, pressure) {
         this.isRain = isRain
+    }
+    init { /*Я никак не могу понять почему виблоке инициализации в любом случае
+    показывается значение (свойство) isRaln, которое задано по умолчанию..
+    мы же его изменили через вторичный конструктор */
+        //  println("Температура днем: $tempDay, температура ночью: $tempNight, дождь: $isRain, давление $pressure")
     }
 
 }
