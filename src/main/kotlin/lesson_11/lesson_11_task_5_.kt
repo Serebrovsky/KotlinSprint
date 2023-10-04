@@ -19,7 +19,6 @@ fun main() {
     }
 
 
-
     for (id in 0..1) {
         println("==ЧАТ==")
         println("Автор с логином ${forum.registeredUsers[id].login} напишите Ваше сообщение:")
