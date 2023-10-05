@@ -15,7 +15,6 @@ fun main() {
         val email = readln()
 
         forum.createNewUser(login, password, email)
-
     }
 
     for (id in 0..1) {
