@@ -6,19 +6,31 @@ package lesson_13
  незаполненным. Поля не должны иметь никакой инициализации по умолчанию.*/
 
 fun main() {
-    val contact1 = Contact("Владимир", 89152095507)
+    val contact1 = Contact("Владимир", "89152095507")
     println(contact1.name)
     println(contact1.number)
 
-    val contact2 = Contact("Вика", 89154052714)
+
+    val contact2 = Contact("Вика", "89164052714", "ВНИИНМ")
     println(contact2.name)
     println(contact2.number)
-
-    contact2.company = "ВНИИНМ"
     println(contact2.company)
+
+
 }
 
-class Contact(var name: String, var number: Long) {
-    var company: String? = null
+class Contact(
+    val name: String,
+    val number: String){
+    var company: String? = null //я так понимаю null это ничего
+
+    constructor(
+         name: String,
+         number: String,
+         company: String
+    ) : this(name, number) {
+        this.company = company
+
+    }
 
 }
