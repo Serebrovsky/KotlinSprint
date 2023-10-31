@@ -16,6 +16,7 @@ fun main() {
     println(contact2.company)
 
 }
+
 class Contact(
     var name: String,
     var number: String,
