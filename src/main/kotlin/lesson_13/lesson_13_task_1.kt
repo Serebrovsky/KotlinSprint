@@ -23,6 +23,7 @@ class Contact(
     var company: String?,
     ){
 
+
     constructor(
          name: String,
          number: String,
