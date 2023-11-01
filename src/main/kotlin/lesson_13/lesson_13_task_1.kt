@@ -10,22 +10,23 @@ fun main() {
     println(contact1.name)
     println(contact1.number)
 
-    val contact2 = Contact("Вика", "89164052714","ВНИИНМ")
+    val contact2 = Contact("Вика", "89164052714", "ВНИИНМ")
     println(contact2.name)
     println(contact2.number)
     println(contact2.company)
 
+
+
 }
 
 class Contact(
-    var name: String,
-    var number: String,
-    var company: String?,
-    ){
-
+    val name: String,
+    val number: String,
+    val company: String?,
+) {
 
     constructor(
-         name: String,
-         number: String,
-    ) :this(name, number, null)
+        name: String,
+        number: String,
+    ) : this(name, number, null)
 }
