@@ -12,21 +12,22 @@ package lesson_13
 Вместо null значения, в консоль должна выводиться строка <не указано>.*/
 
 fun main() {
-    val contact1 = Contact1("Ростислав", "89123456789", "Reddit")
+    val contact1 = Contact1("Ростислав", "89123456789")
     contact1.printContact()
-
 
 }
 
 class Contact1(
     var name: String,
     var number: String,
-    var company: String?,
+    var company: String? = null,
 ) {
-    constructor(
-        name: String,
-        number: String,
-    ) : this(name, number, null)
+    init {
+        if (company == null) {
+            company = "<не указано>"
+        }
+    }
+
 
     fun printContact() {
         println(
@@ -36,6 +37,5 @@ class Contact1(
             |- Компания: $company""".trimMargin()
         )
     }
-
 
 }
