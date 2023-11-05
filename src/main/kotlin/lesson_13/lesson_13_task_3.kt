@@ -10,34 +10,23 @@ package lesson_13
 - выведи список всех существующих компаний, которые есть в телефонной книге.*/
 
 fun main() {
-    val array = listOf<Contactt>(
+    val listOfContacts = listOf<Contactt>(
         Contactt("Вова", "89152095507", "ВНИИАЭС"),
         Contactt("Вика", "89152072435", "ВНИИНМ"),
         Contactt("Леха", "89788778997"),
         Contactt("Сережа", "8923565456"),
         Contactt("Всеволод", "89266415345", "null")
     )
-    array.forEach { println(it.company) }
+    listOfContacts.forEach { println(it.company) }
 }
 
 class Contactt(
-    var name: String,
-    var number: String,
-    var company: String?,
-) {
-    constructor(
-        name: String,
-        number: String,
-    ) : this(name, number, null)
-
-    fun printContact() {
-        println(
-            """
-            |- Имя: $name
-            |- Номер: $number
-            |- Компания: $company""".trimMargin()
-        )
+    val name: String,
+    val number: String,
+    var company: String? = null,
+) {init {
+    if (company == null) {
+        company = "<не указано>"
     }
-
-
+}
 }
