@@ -17,16 +17,12 @@ fun main() {
         Contactt("Сережа", "8923565456"),
         Contactt("Всеволод", "89266415345", "null")
     )
-    listOfContacts.forEach { println(it.company) }
+    listOfContacts.forEach { println(it.company?:"<не указано>") }
 }
 
+//company?:"<не указано>"
 class Contactt(
     val name: String,
     val number: String,
-    var company: String? = null,
-) {init {
-    if (company == null) {
-        company = "<не указано>"
-    }
-}
-}
+    val company: String? = null,
+)
