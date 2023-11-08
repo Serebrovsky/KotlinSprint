@@ -22,19 +22,13 @@ class Contact1(
     var number: String,
     var company: String? = null,
 ) {
-    init {
-        if (company == null) {
-            company = "<не указано>"
-        }
-    }
-
 
     fun printContact() {
         println(
             """
             |- Имя: $name
             |- Номер: $number
-            |- Компания: $company""".trimMargin()
+            |- Компания: ${company?:"<не указано>"}""".trimMargin()
         )
     }
 
