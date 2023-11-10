@@ -17,10 +17,9 @@ fun main() {
         Contactt("Сережа", "8923565456"),
         Contactt("Всеволод", "89266415345", "null")
     )
-    listOfContacts.forEach { println(it.company?:"<не указано>") }
+    listOfContacts.forEach { println(it.company ?: "<не указано>") }
 }
 
-//company?:"<не указано>"
 class Contactt(
     val name: String,
     val number: String,
