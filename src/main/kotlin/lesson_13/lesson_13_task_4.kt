@@ -14,33 +14,34 @@ package lesson_13
 fun main() {
 
     val contacts = mutableListOf<Contacttt>()
-    var stop = "стоп"
+
     do {
-
-        var i = 0
-
-        contacts.add(i, Contacttt("", 0))
-
         println("Введите Ваше имя:")
-        contacts[i].name = readln()
+        val name = readln()
 
         println("Введите Ваш номер телефона:")
-        contacts[i].number = readln().toLongOrNull()
+        val number = readln().toLongOrNull()
 
-        if (contacts[i].number == null) {
-            println("Вы не ввели номер телефона! Данная запись не будет сохранена!")
-            continue
+        println("Введите название Вашей компании или нажмите Enter")
+        var company: String? = readln()
+        if (company == "") {
+            company = null
         }
-        println("Введите название Вашей компании")
-        contacts[i].company = readln()
+
+
+        if (number != null) {
+            contacts.add(Contacttt(name, number, company))
+        } else println("Запись не сохранена, так как не был введен номер телефона!")
+
 
         println("Наберите \"Стоп\" для завершения или Enter для продолжения:")
-        stop = readln().toLowerCase()
-        i++
-    } while (stop != "стоп")
+        val stop = readln().toLowerCase()
+    } while (stop != STOP)
+
     contacts.forEach { it.printContact() }
 
 }
+const val STOP = "стоп"
 
 class Contacttt(
     var name: String,
