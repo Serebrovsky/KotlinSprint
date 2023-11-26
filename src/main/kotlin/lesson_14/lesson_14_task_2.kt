@@ -19,7 +19,6 @@ fun main() {
     val cargoShip1 = CargoShip1()
     cargoShip1.loading()
     cargoShip1.print()
-
 }
 
 open class Liner1(
