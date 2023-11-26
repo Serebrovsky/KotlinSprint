@@ -51,6 +51,7 @@ class IceBreaker1(
     }
 }
 
+
 class CargoShip1(
     val capacity: Int = 10000,
 ) : Liner1(speed = 25) {
