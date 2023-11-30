@@ -49,6 +49,7 @@ fun main() {
 
 }
 
+
 const val WHITE = "белый"
 const val BLACK = "черный"
 
