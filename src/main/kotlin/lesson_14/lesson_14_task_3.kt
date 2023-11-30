@@ -1,5 +1,7 @@
 package lesson_14
 
+
+
 /*Задача 3 к Уроку 14
 Напиши программу для работы с геометрическими фигурами: кругом и прямоугольником.
 Каждая фигура имеет свой цвет и уникальные параметры:
@@ -19,30 +21,40 @@ package lesson_14
 fun main() {
     var sumS = 0.0
     var sumP = 0.0
-    val listFigure = mutableListOf<Figure>(
-        Circle(2, "белый"),
-        Circle(2, "черный"),
-        Circle(2, "белый"),
-        Circle(2, "белый"),
-        Rectangle(2, 2, "черный"),
-        Rectangle(2, 2, "белый"),
-        Rectangle(2, 2, "черный"),
-        Rectangle(2, 2, "белый"),
+    val listFigure = listOf<Figure>(
+        Circle(2, WHITE),
+        Circle(2, BLACK),
+        Circle(2, WHITE),
+        Circle(2, WHITE),
+        Rectangle(2, 2, BLACK),
+        Rectangle(2, 2, WHITE),
+        Rectangle(2, 2, BLACK),
+        Rectangle(2, 2, WHITE),
     )
 
-    listFigure.forEach {
+    val listWhite = listFigure.filter { it.color == WHITE }
+    listWhite.forEach {
         it.area()
         sumS += it.s
+    }
+    val listBlack = listFigure.filter { it.color == BLACK }
+    listBlack.forEach {
         it.perimeter()
         sumP += it.p
-
     }
+
+
     println("Площадь всех фигур белого цвета: $sumS")
     println("Периметр всех черных фигур: $sumP")
 
 }
 
-const val PI = 3.14
+const val WHITE = "белый"
+const val BLACK = "черный"
+
+
+const val PI = Math.PI
+
 
 open class Figure(var color: String) {
     var s = 0.0
