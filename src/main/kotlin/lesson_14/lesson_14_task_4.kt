@@ -11,25 +11,33 @@ package lesson_14
 fun main() {
     val planet1 = Planet(
         listOf(
-            Satellite("Фобос", true, false),
-            Satellite("Деймос", true, true)
-        ), "Марс", false, false
+            Satellite("Фобос", isAtmosphere = true, isGetOff = false),
+            Satellite("Деймос", isAtmosphere = true, isGetOff = true)
+        ), "Марс", isAtmosphere = false, isGetOff = false
     )
     planet1.printNamePlanet()
 }
 
-open class SpaceObject(val name: String, val isAtmosphere: Boolean, val isGetOff: Boolean) {}
-
-class Planet(val listOfSatellite: List<Satellite>, name: String, isAtmosphere: Boolean, isGetOff: Boolean) :
-    SpaceObject(name, isAtmosphere, isGetOff) {
+open class SpaceObject(
+    val name: String,
+    val isAtmosphere: Boolean,
+    val isGetOff: Boolean
+)
+class Planet(
+    val listOfSatellite: List<Satellite>,
+    name: String,
+    isAtmosphere: Boolean,
+    isGetOff: Boolean
+) : SpaceObject(name, isAtmosphere, isGetOff) {
     fun printNamePlanet() {
         println("Планета: $name")
         listOfSatellite.forEach {
             println("Спутник: ${it.name}")
         }
-
     }
 }
-
-
-class Satellite(name: String, isAtmosphere: Boolean, isGetOff: Boolean) : SpaceObject(name, isAtmosphere, isGetOff)
+class Satellite(
+    name: String,
+    isAtmosphere: Boolean,
+    isGetOff: Boolean
+) : SpaceObject(name, isAtmosphere, isGetOff)
