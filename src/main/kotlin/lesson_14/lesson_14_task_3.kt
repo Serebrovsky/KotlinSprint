@@ -1,7 +1,5 @@
 package lesson_14
 
-
-
 /*Задача 3 к Уроку 14
 Напиши программу для работы с геометрическими фигурами: кругом и прямоугольником.
 Каждая фигура имеет свой цвет и уникальные параметры:
@@ -19,8 +17,9 @@ package lesson_14
 - сумму периметров всех черных фигур;
 - сумму площадей всех белых фигур.*/
 fun main() {
-    var sumS = 0.0
-    var sumP = 0.0
+    val sumS = 0.0
+    val sumP = 0
+
     val listFigure = listOf<Figure>(
         Circle(2, WHITE),
         Circle(2, BLACK),
@@ -33,55 +32,34 @@ fun main() {
     )
 
     val listWhite = listFigure.filter { it.color == WHITE }
-    listWhite.forEach {
+    listWhite.sumOf {
         it.area()
-        sumS += it.s
     }
+
     val listBlack = listFigure.filter { it.color == BLACK }
-    listBlack.forEach {
+    listBlack.sumOf {
         it.perimeter()
-        sumP += it.p
     }
-
-
     println("Площадь всех фигур белого цвета: $sumS")
     println("Периметр всех черных фигур: $sumP")
 
 }
 
-
 const val WHITE = "белый"
 const val BLACK = "черный"
-
-
 const val PI = Math.PI
 
-
 open class Figure(var color: String) {
-    var s = 0.0
-    var p = 0
-    open fun area() {}
-    open fun perimeter() {}
-
-
+    open fun area(): Double = 0.0 ///!!!!
+    open fun perimeter(): Int = 0 ///!!!!
 }
 
 class Circle(var radius: Int, color: String) : Figure(color) {
-
-    override fun area() {
-        if (color == "белый") {
-            s += (PI * (radius * radius))
-
-
-        }
-    }
+    override fun area(): Double = PI * (radius * radius)
 }
 
 class Rectangle(var width: Int, var height: Int, color: String) : Figure(color) {
-    override fun perimeter() {
-        if (color == "черный") {
-            p += (width + height) * 2
-
-        }
-    }
+    override fun perimeter(): Int = (width + height) * 2
 }
+
+
