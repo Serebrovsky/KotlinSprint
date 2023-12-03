@@ -58,6 +58,7 @@ class Circle(var radius: Int, color: String) : Figure(color) {
     override fun area(): Double = PI * (radius * radius)
 }
 
+
 class Rectangle(var width: Int, var height: Int, color: String) : Figure(color) {
     override fun perimeter(): Int = (width + height) * 2
 }
