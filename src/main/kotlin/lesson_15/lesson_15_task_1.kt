@@ -26,18 +26,16 @@ fun main() {
 
 }
 
-interface FlyAnimal {
+interface Flying {
     fun fly() {
-        println("умеет лететь")
     }
 }
 
-interface SwimAnimal {
+interface Swimming {
     fun swim() {
-        println("умеет плыть")
     }
 }
 
-class Carp : SwimAnimal
-class Gull : FlyAnimal, SwimAnimal
-class Duck : FlyAnimal, SwimAnimal
+class Carp : Swimming
+class Gull : Flying, Swimming
+class Duck : Flying, Swimming
