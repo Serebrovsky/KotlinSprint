@@ -17,9 +17,6 @@ package lesson_14
 - сумму периметров всех черных фигур;
 - сумму площадей всех белых фигур.*/
 fun main() {
-    val sumS = 0.0
-    val sumP = 0
-
     val listFigure = listOf<Figure>(
         Circle(2, WHITE),
         Circle(2, BLACK),
@@ -32,12 +29,12 @@ fun main() {
     )
 
     val listWhite = listFigure.filter { it.color == WHITE }
-    listWhite.sumOf {
+    val sumS = listWhite.sumOf {
         it.area()
     }
 
     val listBlack = listFigure.filter { it.color == BLACK }
-    listBlack.sumOf {
+    val sumP = listBlack.sumOf {
         it.perimeter()
     }
     println("Площадь всех фигур белого цвета: $sumS")
@@ -49,18 +46,19 @@ const val WHITE = "белый"
 const val BLACK = "черный"
 const val PI = Math.PI
 
-open class Figure(var color: String) {
-    open fun area(): Double = 0.0 ///!!!!
-    open fun perimeter(): Int = 0 ///!!!!
+abstract class Figure(var color: String) {
+    abstract fun area(): Double
+    abstract fun perimeter(): Double
 }
 
 class Circle(var radius: Int, color: String) : Figure(color) {
     override fun area(): Double = PI * (radius * radius)
+    override fun perimeter(): Double = 2 * PI * radius
 }
 
-
 class Rectangle(var width: Int, var height: Int, color: String) : Figure(color) {
-    override fun perimeter(): Int = (width + height) * 2
+    override fun area(): Double = (width * height).toDouble()
+    override fun perimeter(): Double = ((width + height) * 2).toDouble()
 }
 
 
