@@ -21,57 +21,43 @@ open class Message(val id: Int, val text: String, val author: String)
 class ChildMessage(id: Int, text: String, author: String, val parentMessageId: Int) : Message(id, text, author)
 
 class Chat {
-    val messages: MutableList<Message> = mutableListOf()
 
-    fun addMessage(text: String, author: String) {
-        val messageId = messages.size + 1
+    private val messages: MutableList<Message> = mutableListOf()
+
+
+    fun addMessage(messageId: Int, text: String, author: String) {
+
+
         val message = Message(messageId, text, author)
         messages.add(message)
     }
 
-    fun addThreadMessage(text: String, author: String, parentMessageId: Int) {
-        val messageId = messages.size + 1
+    fun addThreadMessage(messageId: Int, text: String, author: String, parentMessageId: Int) {
+
+
         val childMessage = ChildMessage(messageId, text, author, parentMessageId)
         messages.add(childMessage)
     }
 
     fun printChat() {
-        /* печатает все сообщения чата. Если создано дочернее сообщение, необходимо применить
-        для вывода табуляцию и печатать его под родительским сообщением. Используй groupBy()
-        для группировки сообщений по parentMessageId, если сообщение является экземпляром ChildMessage,
-        или по id если это обычное сообщение.*/
-        val chlistMes = mutableListOf<ChildMessage>()
-        val listMes = mutableListOf<Message>()
-        messages.forEach { message ->
-            if (message is ChildMessage) {
-                chlistMes.add(message)
+        val threadMap = messages.groupBy {
+            if (it is ChildMessage) {
+                it.parentMessageId
             } else {
-                listMes.add(message)
+                it.id
             }
         }
-        listMes.groupBy { it.id }
-        chlistMes.groupBy { it.id }
-
-        listMes.forEach {
-            println(it.text)
-            chlistMes.forEach { println(it.id) }
-
-
-        }
-        println(chlistMes)
-
-
+        println(threadMap)
     }
 }
-
 
 
 fun main() {
     val chat = Chat()
 
-    chat.addMessage("Hello, World!", "User1")
-    chat.addMessage("How are you?", "User2")
-    chat.addThreadMessage("I'm fine, thank you!", "User1", 1)
+    chat.addMessage(1,"Hello, World!", "User1")
+    chat.addMessage(2,"How are you?", "User2")
+    chat.addThreadMessage(3,"I'm fine, thank you!", "User1", 2)
 
     chat.printChat()
 }
