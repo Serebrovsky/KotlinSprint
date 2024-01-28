@@ -47,7 +47,12 @@ class Chat {
                 it.id
             }
         }
-        println(threadMap)
+        threadMap.forEach { (_, messageList) -> //не используем ключ
+            messageList.forEach { message ->
+                val tab = if (message is ChildMessage) "\t" else ""
+                println("$tab${message.id}. ${message.author}: ${message.text}")
+            }
+        }
     }
 }
 
