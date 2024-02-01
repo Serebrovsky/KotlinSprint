@@ -13,7 +13,7 @@ abstract class Product(val name: String, val quantity: Int)
 class Instrument(name: String, quantity: Int) : Product(name, quantity)
 
 // Класс для комплектующих
-class Accessory(name: String, quantity: Int, var parentId: Int) : Product(name, quantity)
+class Accessory(name: String, quantity: Int, val parentId: Int) : Product(name, quantity)
 
 //класс магазин
 class Shop : AccessorySearch {
