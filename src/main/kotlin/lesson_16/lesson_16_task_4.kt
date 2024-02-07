@@ -25,7 +25,6 @@ fun main() {
  * @property readinessStatus статус заказа
  */
 class InternetOrder(val orderNumber: Int, private var readinessStatus: String) {
-
     init {
         // Предполагается, что номер заказа генерируется при создании заказа и не может быть изменен после этого.
         println("Создан заказ #$orderNumber со статусом: $readinessStatus")
