@@ -15,7 +15,14 @@ fun main() {
 
 
 }
-
+/**
+ * Класс представляющий собой заказ в магазине
+ *
+ * Предполагается, что номер заказа генерируется при создании заказа и не может быть изменен после этого.
+ *
+ * @property orderNumber номер заказа
+ * @property readinessStatus статус заказа
+ */
 class InternetOrder(val orderNumber: Int, private var readinessStatus: String) {
 
     init {
