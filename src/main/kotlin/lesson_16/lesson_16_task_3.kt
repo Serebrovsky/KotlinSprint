@@ -25,9 +25,6 @@ class User {
     private val password = "Ducati749s"
 
     fun validPassword(inputLogin: String, inputPassword: String): Boolean {
-        val isTrue = (inputLogin == login && inputPassword == password)
-        return isTrue
-
-
+        return (inputLogin == login && inputPassword == password)
     }
 }
