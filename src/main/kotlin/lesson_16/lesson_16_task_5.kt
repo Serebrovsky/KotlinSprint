@@ -11,22 +11,15 @@ fun main() {
     val player1 = Player("Владимир")
     val player2 = Player("Света")
 
-    //получили урон:
-    player1.takingDamage()
-    player1.takingDamage()
-    player1.takingDamage()
-    player1.takingDamage()
-
-
+    player1.takeDamage()
+    player1.takeDamage()
+    player1.takeDamage()
+    player1.takeDamage()
 
     player1.therapy()
 
-    //статистика:
     player1.status()
-
 }
-
-
 class Player(val name: String) {
     private var health = 100
     var forceOfHit = 100
@@ -36,8 +29,8 @@ class Player(val name: String) {
         println("СТАТИСТИКА:\nИмя: $name, здоровье: $health, сила удара: $forceOfHit")
     }
 
-    fun takingDamage(): Int { //получение урона
-        health -= 25
+    fun takeDamage(): Int {
+        health -= MARK
         println("$name, -25 здоровья: $health")
         if (health <= 0) {
             death()
@@ -45,25 +38,22 @@ class Player(val name: String) {
         return health
     }
 
-    fun therapy(): Int { //лечение
+    fun therapy(): Int {
         if (!isDeath) {
-            health += 25
+            health += MARK
             println("$name, +25 лечения: $health")
-
         } else {
             println("Невозможно лечение! Вы мертвы!")
         }
         return health
     }
 
-
     private fun death() {
-        forceOfHit = 0
-        health = 0
+        forceOfHit = ZERO
+        health = ZERO
         isDeath = true
-
         println("$name, вы умерли! Ваше здоровье: $health, сила удара: $forceOfHit")
-
     }
-
 }
+const val MARK = 25
+const val ZERO = 0
