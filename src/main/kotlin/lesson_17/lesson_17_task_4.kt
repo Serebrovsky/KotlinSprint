@@ -8,6 +8,7 @@ package lesson_17
 Сымитировать прибытие посылки в новый пункт обработки, протестировать изменение счетчика.
 При реализации использовать сеттер.*/
 
+
 class Package(val number: Int, location: String) {
 
     var location: String = location
